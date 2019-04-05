@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
+using System.Collections;
 
 namespace Fibonacci
 {
-   class Fib
+   class Fib:IEnumerable
     {
         
         public  BigInteger this[BigInteger i]
@@ -31,7 +32,29 @@ namespace Fibonacci
 
            
         }
-       public  string InformaboutFibNumber(BigInteger i)
+
+        BigInteger temp;
+
+      public  Fib(BigInteger input)
+        {
+            temp = input;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            BigInteger i = 0;
+
+            do
+            {
+                yield return this[i];
+                i++;
+            } while (i != temp);
+           
+        }
+
+
+
+        public  string InformaboutFibNumber(BigInteger i)
        {
             string s= $"Fib({i}) = {this[i]};\n ";
             if(this[i].IsZero) s += $"Fib({i}) is zero\n ";
