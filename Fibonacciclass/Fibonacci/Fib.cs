@@ -52,7 +52,17 @@ namespace Fibonacci
            
         }
 
+      public  void Show()
+        {
+            int j = 1;
+            foreach (var i in this)
+            {
+                
+                Console.WriteLine($"Fib({j})={i}");
+                j++;
+            }
 
+        }
 
         public  string InformaboutFibNumber(BigInteger i)
        {
