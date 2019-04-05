@@ -7,7 +7,7 @@ using System.Numerics;
 
 namespace Fibonacci
 {
-    class Fib
+   class Fib
     {
         
         public  BigInteger this[BigInteger i]
@@ -31,6 +31,14 @@ namespace Fibonacci
 
            
         }
-       
+       public  string InformaboutFibNumber(BigInteger i)
+       {
+            string s= $"Fib({i}) = {this[i]};\n ";
+            if(this[i].IsZero) s += $"Fib({i}) is zero\n ";
+            if(this[i].IsOne)  s += $"Fib({i}) is One\n ";
+            if (this[i].IsEven) s += $"Fib({i}) is Even\n ";
+            if (this[i].IsPowerOfTwo) s += $"Fib({i}) is Power Of Two\n ";
+            return s;
+        }
     }
 }
