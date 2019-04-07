@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace Fibonacci
 {
-   class Fib:IEnumerable
+   class Fib:IEnumerable<BigInteger>
     {
         
         public  BigInteger this[BigInteger i]
@@ -40,17 +40,7 @@ namespace Fibonacci
             temp = input;
         }
 
-        public IEnumerator GetEnumerator()
-        {
-            BigInteger i = 0;
-
-            do
-            {
-                yield return this[i];
-                i++;
-            } while (i != temp);
-           
-        }
+       
 
       public  void Show()
         {
@@ -63,7 +53,7 @@ namespace Fibonacci
             }
 
         }
-
+       
         public  string InformaboutFibNumber(BigInteger i)
        {
             string s= $"Fib({i}) = {this[i]};\n ";
@@ -72,6 +62,21 @@ namespace Fibonacci
             if (this[i].IsEven) s += $"Fib({i}) is Even\n ";
             if (this[i].IsPowerOfTwo) s += $"Fib({i}) is Power Of Two\n ";
             return s;
+        }
+
+        public IEnumerator<BigInteger> GetEnumerator()
+        {
+            int i = 0;
+            do
+            {
+                yield return this[i];
+                i++;
+            } while (i != temp);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)this;
         }
     }
 }
