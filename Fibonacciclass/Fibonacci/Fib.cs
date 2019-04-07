@@ -61,9 +61,11 @@ namespace Fibonacci
             if(this[i].IsOne)  s += $"Fib({i}) is One\n ";
             if (this[i].IsEven) s += $"Fib({i}) is Even\n ";
             if (this[i].IsPowerOfTwo) s += $"Fib({i}) is Power Of Two\n ";
+          
             return s;
         }
 
+        
         public IEnumerator<BigInteger> GetEnumerator()
         {
             int i = 0;
@@ -71,7 +73,7 @@ namespace Fibonacci
             {
                 yield return this[i];
                 i++;
-            } while (i != temp);
+            } while (i < temp);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
